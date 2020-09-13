@@ -387,7 +387,7 @@ function! yoink#getYankInfoForReg(reg)
 endfunction
 
 function! yoink#canSwap()
-    return s:isCloseEnoughChangeTick(s:lastPasteChangedtick) && !s:hasMovedFromPaste
+    return !s:hasMovedFromPaste
 endfunction
 
 function! yoink#isSwapping()
