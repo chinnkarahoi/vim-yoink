@@ -435,6 +435,9 @@ function! yoink#rotateThenPrint(offset)
 endfunction
 
 function! yoink#onVimEnter()
+    if $SSH_TTY != ""
+        return
+    endif
     call yoink#addCurrentDefaultRegToHistory()
 
     if get(g:, 'yoinkSyncSystemClipboardOnFocus', 1)
