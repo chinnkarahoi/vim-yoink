@@ -443,8 +443,8 @@ function! yoink#onVimEnter()
     if get(g:, 'yoinkSyncSystemClipboardOnFocus', 1)
         augroup _YoinkSystemSync
             au!
-            autocmd FocusGained * call yoink#onFocusGained()
-            autocmd FocusLost * call yoink#onFocusLost()
+            autocmd FocusGained * silent! call yoink#onFocusGained()
+            autocmd FocusLost * silent! call yoink#onFocusLost()
         augroup END
     endif
 endfunction
