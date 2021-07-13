@@ -20,6 +20,11 @@ if !has("nvim")
     augroup END
 endif
 
+function! AsyncVimEnter(...) abort
+    doautocmd User AsyncVimEnter
+endfunction
+autocmd VimEnter * call timer_start(0, 'AsyncVimEnter', {'repeat': 1})
+
 augroup _Yoink
     au!
     autocmd TextYankPost * call yoink#onYank(copy(v:event))
